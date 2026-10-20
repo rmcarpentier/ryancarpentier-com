@@ -32,6 +32,7 @@ export function ProjectImage({
           fill
           sizes={sizes}
           priority={priority}
+          style={image.focus ? { objectPosition: image.focus } : undefined}
           className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
         />
       </div>

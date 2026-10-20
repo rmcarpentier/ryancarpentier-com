@@ -20,12 +20,6 @@ export function generateMetadata({ params }: Params): Metadata {
   return { title: project.title, description: project.blurb };
 }
 
-const galleryAspect = {
-  wide: "aspect-[16/9]",
-  tall: "aspect-[3/4]",
-  square: "aspect-square",
-} as const;
-
 export default function ProjectPage({ params }: Params) {
   const project = getProject(params.slug);
   if (!project) notFound();
@@ -135,16 +129,16 @@ export default function ProjectPage({ params }: Params) {
         <Reveal>
           <p className="eyebrow">Gallery</p>
         </Reveal>
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
+        <div className="mt-10 grid gap-4 md:auto-rows-[clamp(15rem,26vw,26rem)] md:grid-cols-3">
           {project.gallery.map((img, i) => (
             <Reveal
               key={img.caption}
               delay={(i % 3) * 0.06}
-              className={`group ${img.size === "wide" ? "md:col-span-2" : ""}`}
+              className={`group h-full ${img.size === "wide" ? "md:col-span-2" : ""}`}
             >
               <ProjectImage
                 image={img}
-                className={`w-full ${galleryAspect[img.size ?? "square"]}`}
+                className="aspect-[4/3] w-full md:aspect-auto md:h-full"
                 sizes="(min-width: 768px) 50vw, 100vw"
               />
             </Reveal>

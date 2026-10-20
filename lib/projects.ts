@@ -7,6 +7,8 @@ export type ProjectImage = {
   caption: string;
   /** "wide" spans two columns in the gallery. */
   size?: "wide" | "tall" | "square";
+  /** CSS object-position for cropping, e.g. "50% 20%" keeps the top of the photo in frame. */
+  focus?: string;
 };
 
 export type Project = {
@@ -82,13 +84,44 @@ export const projects: Project[] = [
         body: "Negotiated rock-bottom pricing, warehouse-minimum guarantees and custom products through the sister company I also ran.",
       },
     ],
-    cover: { alt: "Pizza Press restaurant interior", caption: "Flagship interior", size: "wide" },
+    cover: {
+      src: "/projects/pizza-press-franchise-rollout/01-dining-room.jpg",
+      alt: "Finished Pizza Press dining room with black bentwood chairs, pendant lights and an open kitchen",
+      caption: "Finished dining room",
+      size: "wide",
+    },
     gallery: [
-      { alt: "Storefront", caption: "Storefront at grand opening", size: "wide" },
-      { alt: "Test-fit layout", caption: "Preliminary test-fit layout", size: "square" },
-      { alt: "Construction progress", caption: "Mid-construction site visit", size: "tall" },
-      { alt: "Finished dining room", caption: "Finished dining room", size: "square" },
-      { alt: "Open for business", caption: "Opening day", size: "wide" },
+      {
+        src: "/projects/pizza-press-franchise-rollout/02-storefront.jpg",
+        alt: "Pizza Press storefront with black awning and brick facade",
+        caption: "Storefront",
+        size: "wide",
+        focus: "50% 15%",
+      },
+      {
+        src: "/projects/pizza-press-franchise-rollout/03-order-here.jpg",
+        alt: "Order counter with a 'Start your order here' sign above the pizza line",
+        caption: "Ordering line at grand opening",
+        size: "square",
+      },
+      {
+        src: "/projects/pizza-press-franchise-rollout/04-dining-open-kitchen.jpg",
+        alt: "Dining room looking toward the open kitchen and soda fountain",
+        caption: "Dining room and open kitchen",
+        size: "square",
+      },
+      {
+        src: "/projects/pizza-press-franchise-rollout/05-banquette.jpg",
+        alt: "Leather banquette seating under pendant lights and framed photography",
+        caption: "Banquette seating",
+        size: "square",
+      },
+      {
+        src: "/projects/pizza-press-franchise-rollout/06-service-line.jpg",
+        alt: "Glass-fronted service line with brass details beneath the kitchen hood",
+        caption: "Service line",
+        size: "square",
+      },
     ],
   },
   {
@@ -272,7 +305,7 @@ export const projects: Project[] = [
     blurb:
       "Modular displays shipped overseas and open-air demo stations that drove $1.2M+ in revenue.",
     overview:
-      "I coordinated three-week pop-up shops in England and Australia introducing the QC20 noise-cancelling in-ear headphones, plus a large retail-style activation at the US Open of Surf. Displays were designed and fabricated to be modular and meet international shipping specs, with listening stations that let consumers try the Bose line-up in public spaces.",
+      "I coordinated three-week pop-up shops in England and Australia introducing the QC20 noise-cancelling in-ear headphones, plus a large retail-style activation at the US Open of Surf: the Bose Sound Shack, a beach hut with custom skateboard-deck displays and multiple demo stations. Displays were designed and fabricated to be modular and meet international shipping specs, with listening stations that let consumers try the Bose line-up in public spaces.",
     role: "Project coordinator & designer",
     scope: ["Pop-up retail", "Fabrication", "International logistics", "Event activation"],
     stats: [
@@ -296,11 +329,37 @@ export const projects: Project[] = [
         body: "Graphics, messaging and layout designed as one customer journey.",
       },
     ],
-    cover: { alt: "Bose pop-up display", caption: "Open-air listening stations", size: "wide" },
+    cover: {
+      src: "/projects/bose-qc20-pop-ups/01-sound-shack-team.jpg",
+      alt: "Brand ambassadors at the Bose Sound Shack, a thatched beach hut at the US Open of Surf",
+      caption: "The Bose Sound Shack, US Open of Surf",
+      size: "wide",
+    },
     gallery: [
-      { alt: "Display", caption: "Modular display", size: "square" },
-      { alt: "US Open of Surf", caption: "US Open of Surf activation", size: "wide" },
-      { alt: "Listening station", caption: "Listening station", size: "tall" },
+      {
+        src: "/projects/bose-qc20-pop-ups/02-skateboard-displays.jpg",
+        alt: "Headphones mounted on custom painted skateboard-deck displays",
+        caption: "Skateboard-deck headphone displays",
+        size: "wide",
+      },
+      {
+        src: "/projects/bose-qc20-pop-ups/03-listening.jpg",
+        alt: "Guests trying Bose headphones at the Sound Shack",
+        caption: "Guests trying the product",
+        size: "square",
+      },
+      {
+        src: "/projects/bose-qc20-pop-ups/04-product-demo.jpg",
+        alt: "Bose team member demonstrating headphones to a guest",
+        caption: "Product demos",
+        size: "square",
+      },
+      {
+        src: "/projects/bose-qc20-pop-ups/05-us-open-of-surf.jpg",
+        alt: "Aerial view of the US Open of Surf festival village on the beach",
+        caption: "The US Open of Surf festival village",
+        size: "wide",
+      },
     ],
   },
 ];
