@@ -298,64 +298,104 @@ export const projects: Project[] = [
   },
   {
     slug: "bose-qc20-pop-ups",
-    title: "Bose QC20 Global Pop-Ups",
+    title: "Bose QC20 Pop-Ups: England & Australia",
     client: "Bose · via Sandbox Marketing",
     sector: "Experiential",
-    location: "England · Australia · USA",
+    location: "England · Australia",
     blurb:
-      "Modular displays shipped overseas and open-air demo stations that drove $1.2M+ in revenue.",
+      "Three-week open-air pop-ups introducing the QC20, with modular displays built to ship overseas.",
     overview:
-      "I coordinated three-week pop-up shops in England and Australia introducing the QC20 noise-cancelling in-ear headphones, plus a large retail-style activation at the US Open of Surf: the Bose Sound Shack, a beach hut with custom skateboard-deck displays and multiple demo stations. Displays were designed and fabricated to be modular and meet international shipping specs, with listening stations that let consumers try the Bose line-up in public spaces.",
+      "I coordinated three-week-running pop-up shops in England and Australia for the introduction of the QC20 noise-cancelling in-ear headphones. Displays were designed and fabricated to be modular and meet international shipping specifications, then installed in public spaces as open-air listening stations where consumers could try multiple products in the Bose line-up. I worked closely with the Bose retail and marketing team on graphics, messaging and the overall customer-felt experience.",
     role: "Project coordinator & designer",
-    scope: ["Pop-up retail", "Fabrication", "International logistics", "Event activation"],
+    scope: ["Pop-up retail", "Fabrication", "International logistics", "Open-air displays"],
     stats: [
-      { value: "$1.2M+", label: "revenue generated" },
-      { value: "3", label: "countries" },
+      { value: "2", label: "countries" },
       { value: "3 wk", label: "pop-up run" },
+      { value: "$1.2M+", label: "revenue across both Bose campaigns" },
     ],
     phases: {
-      design: "Designed modular displays and the overall customer-felt experience with Bose retail and marketing.",
-      bid: "Managed fabrication and shipping to international specs.",
-      build: "Installed and operated open-air listening stations.",
-      open: "Supported activations through their run.",
+      design: "Designed modular displays, graphics and messaging with the Bose retail and marketing team.",
+      bid: "Managed fabrication and shipping to national and international specifications.",
+      build: "Installed open-air listening stations in public spaces overseas.",
+      open: "Supported the pop-ups through their three-week runs.",
     },
     keyAreas: [
       {
-        title: "Modular fabrication",
-        body: "Displays built to ship overseas and reassemble anywhere.",
+        title: "Modular by necessity",
+        body: "Displays had to ship overseas and meet shipping specifications, so every component was designed to travel and reassemble.",
       },
       {
         title: "Experience design",
-        body: "Graphics, messaging and layout designed as one customer journey.",
+        body: "Graphics, messaging and layout designed as one customer journey with Bose's retail and marketing teams.",
+      },
+    ],
+    cover: { alt: "Bose QC20 pop-up display", caption: "Open-air listening stations", size: "wide" },
+    gallery: [
+      { alt: "Pop-up overview", caption: "Pop-up overview", size: "wide" },
+      { alt: "Modular display", caption: "Modular display", size: "square" },
+      { alt: "Listening station", caption: "Listening station", size: "square" },
+      { alt: "Shipping and install", caption: "Fabrication and install", size: "wide" },
+    ],
+  },
+  {
+    slug: "bose-sound-shack-us-open-of-surf",
+    title: "The Bose Sound Shack at the US Open of Surf",
+    client: "Bose · via Sandbox Marketing",
+    sector: "Experiential",
+    location: "Huntington Beach, CA",
+    year: "2014",
+    blurb:
+      "A beach-hut retail activation with custom skateboard-deck displays and multiple demo stations.",
+    overview:
+      "I designed and executed a large retail-style activation at the US Open of Surf: the Bose Sound Shack, a thatched beach hut with custom skateboard-deck displays and multiple stations where festival-goers could demo products from the Bose line-up. Together with the international pop-ups, the Bose campaigns generated over $1.2 million in revenue.",
+    role: "Designer & project lead",
+    scope: ["Event activation", "Custom build", "Experiential retail", "Demo stations"],
+    stats: [
+      { value: "$1.2M+", label: "revenue across both Bose campaigns" },
+      { value: "2014", label: "US Open of Surf" },
+    ],
+    phases: {
+      design: "Designed the Sound Shack, its custom displays and the overall guest experience.",
+      build: "Built and installed the activation on the beach, including multiple demo stations.",
+      open: "Ran the activation through the event.",
+    },
+    keyAreas: [
+      {
+        title: "Retail on the beach",
+        body: "A themed beach hut turned a festival crowd into hands-on product demos.",
+      },
+      {
+        title: "Custom skateboard displays",
+        body: "Headphones mounted on painted skateboard decks tied the brand to the event's culture.",
       },
     ],
     cover: {
-      src: "/projects/bose-qc20-pop-ups/01-sound-shack-team.jpg",
+      src: "/projects/bose-sound-shack-us-open-of-surf/01-sound-shack-team.jpg",
       alt: "Brand ambassadors at the Bose Sound Shack, a thatched beach hut at the US Open of Surf",
       caption: "The Bose Sound Shack, US Open of Surf",
       size: "wide",
     },
     gallery: [
       {
-        src: "/projects/bose-qc20-pop-ups/02-skateboard-displays.jpg",
+        src: "/projects/bose-sound-shack-us-open-of-surf/02-skateboard-displays.jpg",
         alt: "Headphones mounted on custom painted skateboard-deck displays",
         caption: "Skateboard-deck headphone displays",
         size: "wide",
       },
       {
-        src: "/projects/bose-qc20-pop-ups/03-listening.jpg",
+        src: "/projects/bose-sound-shack-us-open-of-surf/03-listening.jpg",
         alt: "Guests trying Bose headphones at the Sound Shack",
         caption: "Guests trying the product",
         size: "square",
       },
       {
-        src: "/projects/bose-qc20-pop-ups/04-product-demo.jpg",
+        src: "/projects/bose-sound-shack-us-open-of-surf/04-product-demo.jpg",
         alt: "Bose team member demonstrating headphones to a guest",
         caption: "Product demos",
         size: "square",
       },
       {
-        src: "/projects/bose-qc20-pop-ups/05-us-open-of-surf.jpg",
+        src: "/projects/bose-sound-shack-us-open-of-surf/05-us-open-of-surf.jpg",
         alt: "Aerial view of the US Open of Surf festival village on the beach",
         caption: "The US Open of Surf festival village",
         size: "wide",
