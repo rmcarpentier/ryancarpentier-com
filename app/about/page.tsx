@@ -31,8 +31,10 @@ export default function AboutPage() {
       <section className="container-x grid gap-16 py-20 md:py-28 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
         <Reveal>
           <ProjectImage
-            image={{ alt: "Portrait of Ryan Carpentier", caption: "Portrait — add /public/ryan.jpg", size: "tall" }}
+            image={{ src: "/ryan.jpg", alt: "Portrait of Ryan Carpentier", caption: "Ryan Carpentier", size: "tall" }}
             className="aspect-[4/5] w-full"
+            sizes="(min-width: 1024px) 40vw, 100vw"
+            priority
           />
           <p className="mt-4 font-mono text-[0.68rem] uppercase tracking-[0.2em] text-white/35">{site.location}</p>
         </Reveal>
