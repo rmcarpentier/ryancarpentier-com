@@ -23,6 +23,20 @@ export function ProjectImage({
   quiet,
   tone = "dark",
 }: Props) {
+  if (image.src && image.fit === "contain") {
+    return (
+      <div className={`relative overflow-hidden bg-ink-3 ${className}`}>
+        <Image
+          src={image.src}
+          alt={image.alt}
+          fill
+          sizes={sizes}
+          className="object-contain p-4 transition-transform duration-700 ease-out group-hover:scale-[1.02] md:p-6"
+        />
+      </div>
+    );
+  }
+
   if (image.src) {
     return (
       <div className={`relative overflow-hidden ${className}`}>

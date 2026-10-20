@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Gallery } from "@/components/Gallery";
 import { LifecycleTracker } from "@/components/LifecycleTracker";
 import { ProjectCard } from "@/components/ProjectCard";
 import { ProjectImage } from "@/components/ProjectImage";
@@ -125,26 +126,33 @@ export default function ProjectPage({ params }: Params) {
       </section>
 
       {/* GALLERY */}
-      <section className="container-x pb-24 md:pb-32">
-        <Reveal>
-          <p className="eyebrow">Gallery</p>
-        </Reveal>
-        <div className="mt-10 grid gap-4 md:auto-rows-[clamp(15rem,26vw,26rem)] md:grid-cols-3">
-          {project.gallery.map((img, i) => (
-            <Reveal
-              key={img.caption}
-              delay={(i % 3) * 0.06}
-              className={`group h-full ${img.size === "wide" ? "md:col-span-2" : ""}`}
-            >
-              <ProjectImage
-                image={img}
-                className="aspect-[4/3] w-full md:aspect-auto md:h-full"
-                sizes="(min-width: 768px) 50vw, 100vw"
-              />
+      {project.gallery.length > 0 && (
+        <section className="container-x pb-24 md:pb-32">
+          <Reveal>
+            <p className="eyebrow">Gallery</p>
+          </Reveal>
+          <div className="mt-10">
+            <Gallery images={project.gallery} />
+          </div>
+        </section>
+      )}
+
+      {/* DOCUMENTS: plans, spec pages, slides — shown uncropped */}
+      {project.documents && project.documents.length > 0 && (
+        <section className="border-t border-white/10 bg-ink-2">
+          <div className="container-x py-24 md:py-32">
+            <Reveal>
+              <p className="eyebrow">{project.documentsTitle ?? "Sample pages"}</p>
+              <p className="mt-4 max-w-xl text-sm text-white/45">
+                Select excerpts from the original documents. Click any page to enlarge.
+              </p>
             </Reveal>
-          ))}
-        </div>
-      </section>
+            <div className="mt-10">
+              <Gallery images={project.documents} variant="documents" />
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* NEXT / RELATED */}
       <section className="border-t border-white/10 bg-ink-2">

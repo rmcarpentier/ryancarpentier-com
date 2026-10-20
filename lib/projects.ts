@@ -9,6 +9,10 @@ export type ProjectImage = {
   size?: "wide" | "tall" | "square";
   /** CSS object-position for cropping, e.g. "50% 20%" keeps the top of the photo in frame. */
   focus?: string;
+  /** "contain" shows the whole image uncropped (for plans, pages and slides). */
+  fit?: "cover" | "contain";
+  /** Orientation of a document page; decides how wide its card is. */
+  orientation?: "portrait" | "landscape";
 };
 
 export type Project = {
@@ -33,6 +37,9 @@ export type Project = {
   keyAreas: { title: string; body: string }[];
   cover: ProjectImage;
   gallery: ProjectImage[];
+  /** Plans, spec pages, slides: shown uncropped in their own section. */
+  documents?: ProjectImage[];
+  documentsTitle?: string;
 };
 
 /**
@@ -85,42 +92,54 @@ export const projects: Project[] = [
       },
     ],
     cover: {
-      src: "/projects/pizza-press-franchise-rollout/01-dining-room.jpg",
-      alt: "Finished Pizza Press dining room with black bentwood chairs, pendant lights and an open kitchen",
-      caption: "Finished dining room",
+      src: "/projects/pizza-press-franchise-rollout/cover-order-here.jpg",
+      alt: "Order counter with a \"Start your order here\" sign above the pizza line and conveyor oven",
+      caption: "Ordering line at grand opening",
       size: "wide",
     },
     gallery: [
       {
-        src: "/projects/pizza-press-franchise-rollout/02-storefront.jpg",
+        src: "/projects/pizza-press-franchise-rollout/storefront.jpg",
         alt: "Pizza Press storefront with black awning and brick facade",
         caption: "Storefront",
         size: "wide",
         focus: "50% 15%",
       },
       {
-        src: "/projects/pizza-press-franchise-rollout/03-order-here.jpg",
-        alt: "Order counter with a 'Start your order here' sign above the pizza line",
-        caption: "Ordering line at grand opening",
+        src: "/projects/pizza-press-franchise-rollout/patio-storefront.jpg",
+        alt: "Pizza Press storefront with outdoor patio seating behind a black metal railing",
+        caption: "Storefront with patio",
         size: "square",
       },
       {
-        src: "/projects/pizza-press-franchise-rollout/04-dining-open-kitchen.jpg",
-        alt: "Dining room looking toward the open kitchen and soda fountain",
-        caption: "Dining room and open kitchen",
+        src: "/projects/pizza-press-franchise-rollout/dining-room.jpg",
+        alt: "Finished dining room with black bentwood chairs, pendant lights and an open kitchen",
+        caption: "Dining room",
         size: "square",
       },
       {
-        src: "/projects/pizza-press-franchise-rollout/05-banquette.jpg",
+        src: "/projects/pizza-press-franchise-rollout/banquette.jpg",
         alt: "Leather banquette seating under pendant lights and framed photography",
         caption: "Banquette seating",
         size: "square",
       },
       {
-        src: "/projects/pizza-press-franchise-rollout/06-service-line.jpg",
+        src: "/projects/pizza-press-franchise-rollout/service-line.jpg",
         alt: "Glass-fronted service line with brass details beneath the kitchen hood",
         caption: "Service line",
         size: "square",
+      },
+      {
+        src: "/projects/pizza-press-franchise-rollout/irvine-interior.jpg",
+        alt: "Pizza Press interior looking toward the cook line",
+        caption: "Irvine interior",
+        size: "square",
+      },
+      {
+        src: "/projects/pizza-press-franchise-rollout/eastvale-interior.jpg",
+        alt: "Long dining room with leather banquettes and exposed white trusses",
+        caption: "Eastvale interior",
+        size: "wide",
       },
     ],
   },
@@ -134,7 +153,7 @@ export const projects: Project[] = [
     blurb:
       "Six months with a national architecture firm to document every element of a restaurant build-out.",
     overview:
-      "To scale franchise development, every aspect of the build-out process needed to live in one place. I led the six-month creation of the Construction Guidebook in partnership with a national architectural firm — a 210-page standard that can be handed to any contractor or architect in the country and result in a successful restaurant.",
+      "To scale franchise development, every aspect of the build-out process needed to live in one place. I led the six-month creation of the Construction Guidebook in partnership with a national architectural firm — a 210-page standard that can be handed to any contractor or architect in the country and result in a successful restaurant. Version 1.0 of the Architectural Brand Standards was issued in October 2018.",
     role: "Program lead",
     scope: ["Standards & prototype", "Architect partnership", "National contractor enablement"],
     stats: [
@@ -157,12 +176,58 @@ export const projects: Project[] = [
         body: "Written so a contractor or architect in any market could succeed without hand-holding.",
       },
     ],
-    cover: { alt: "Construction Guidebook spread", caption: "Guidebook cover & spreads", size: "wide" },
-    gallery: [
-      { alt: "Guidebook cover", caption: "Cover", size: "tall" },
-      { alt: "Detail pages", caption: "Typical detail sheets", size: "wide" },
-      { alt: "Spec pages", caption: "Equipment & spec pages", size: "square" },
+    cover: {
+      src: "/projects/construction-guidebook/cover.jpg",
+      alt: "Cover of The Pizza Press Architectural Brand Standards",
+      caption: "Architectural Brand Standards, v1.0",
+      size: "wide",
+    },
+    gallery: [],
+    documents: [
+      {
+        src: "/projects/construction-guidebook/page-7.jpg",
+        alt: "Exterior design examples page showing completed Pizza Press storefronts",
+        caption: "Exterior design examples",
+        fit: "contain",
+        orientation: "portrait",
+      },
+      {
+        src: "/projects/construction-guidebook/page-12.jpg",
+        alt: "Interior design page with annotated renderings of the dining room and cook line",
+        caption: "Interior design, annotated",
+        fit: "contain",
+        orientation: "portrait",
+      },
+      {
+        src: "/projects/construction-guidebook/page-15.jpg",
+        alt: "Cookline plan with numbered callouts keyed to product pages",
+        caption: "Cookline plan with callouts",
+        fit: "contain",
+        orientation: "portrait",
+      },
+      {
+        src: "/projects/construction-guidebook/page-21.jpg",
+        alt: "Elevation drawings of the POS area and pizza oven cook line",
+        caption: "Cook line elevations",
+        fit: "contain",
+        orientation: "portrait",
+      },
+      {
+        src: "/projects/construction-guidebook/page-48.jpg",
+        alt: "Flooring systems specification sheet with finish details",
+        caption: "Finish specification",
+        fit: "contain",
+        orientation: "portrait",
+      },
+      {
+        src: "/projects/construction-guidebook/page-77.jpg",
+        alt: "Equipment specification sheet for the conveyor pizza oven",
+        caption: "Equipment specification",
+        fit: "contain",
+        orientation: "portrait",
+      },
     ],
+    documentsTitle: "Sample pages",
   },
   {
     slug: "vet-pantry-program",
@@ -198,12 +263,31 @@ export const projects: Project[] = [
         body: "Partners held inventory levels required for growth, so schedule never waited on product.",
       },
     ],
-    cover: { alt: "Vet pantry installation", caption: "Vet pantry inside a hospital lobby", size: "wide" },
-    gallery: [
-      { alt: "Modular components", caption: "Prefabricated components", size: "square" },
-      { alt: "Installed pantry", caption: "Completed pantry", size: "tall" },
-      { alt: "Layout configurations", caption: "Layout configurations", size: "wide" },
+    cover: {
+      src: "/projects/vet-pantry-program/pantry-sketch.jpg",
+      alt: "Perspective sketch of a proposed pantry with freezers and shelving in a veterinary lobby",
+      caption: "Proposed pantry perspective",
+      size: "wide",
+      focus: "50% 62%",
+    },
+    gallery: [],
+    documents: [
+      {
+        src: "/projects/vet-pantry-program/plan-seattle.jpg",
+        alt: "Proposed floor plan of a Seattle veterinary clinic with the pantry area in the lobby",
+        caption: "Seattle clinic: proposed floor plan",
+        fit: "contain",
+        orientation: "landscape",
+      },
+      {
+        src: "/projects/vet-pantry-program/plan-austin.jpg",
+        alt: "Proposed floor plan of an Austin clinic lobby with pantry freezers and shelving",
+        caption: "Austin clinic: proposed floor plan",
+        fit: "contain",
+        orientation: "landscape",
+      },
     ],
+    documentsTitle: "Plans and sketches",
   },
   {
     slug: "jffd-retail-kitchens",
@@ -239,12 +323,54 @@ export const projects: Project[] = [
         body: "Worked with the B2B team to hold layout and customer experience standards across 175 stores.",
       },
     ],
-    cover: { alt: "JustFoodForDogs retail store", caption: "Stand-alone kitchen storefront", size: "wide" },
+    cover: {
+      src: "/projects/jffd-retail-kitchens/cover.jpg",
+      alt: "JustFoodForDogs stand-alone store with a glass pavilion on a city corner",
+      caption: "Stand-alone store exterior",
+      size: "wide",
+    },
     gallery: [
-      { alt: "Store interior", caption: "Retail floor", size: "wide" },
-      { alt: "Kitchen", caption: "Open kitchen", size: "square" },
-      { alt: "Exterior", caption: "Exterior", size: "tall" },
+      {
+        src: "/projects/jffd-retail-kitchens/o-3.jpg",
+        alt: "Store interior with refrigerated cases, a service counter and customers",
+        caption: "Store interior",
+        size: "wide",
+      },
+      {
+        src: "/projects/jffd-retail-kitchens/o-2.jpg",
+        alt: "Shelves of packaged dog food beside two-door freezers under a glass roof",
+        caption: "Retail shelving and freezers",
+        size: "square",
+      },
+      {
+        src: "/projects/jffd-retail-kitchens/o-4.jpg",
+        alt: "Wood shelving running along the glass wall of the store",
+        caption: "Shelving along the glass",
+        size: "square",
+      },
+      {
+        src: "/projects/jffd-retail-kitchens/o-5.jpg",
+        alt: "Open kitchen with stainless equipment behind the service counter",
+        caption: "Open kitchen",
+        size: "square",
+      },
+      {
+        src: "/projects/jffd-retail-kitchens/o.jpg",
+        alt: "Corner entrance beneath the lit JustFoodForDogs sign",
+        caption: "Corner entrance",
+        size: "square",
+      },
     ],
+    documents: [
+      {
+        src: "/projects/jffd-retail-kitchens/plan-dallas.jpg",
+        alt: "Dallas pantry layout option 3 showing shelving, counters and rooms",
+        caption: "Dallas pantry: layout option 3",
+        fit: "contain",
+        orientation: "landscape",
+      },
+    ],
+    documentsTitle: "Plans",
   },
   {
     slug: "veterinary-hospital-replacements",
@@ -288,12 +414,55 @@ export const projects: Project[] = [
         body: "Hands-on partnership with municipalities and expediters to move plan sets swiftly.",
       },
     ],
-    cover: { alt: "Veterinary hospital exterior", caption: "New hospital exterior", size: "wide" },
+    cover: {
+      src: "/projects/veterinary-hospital-replacements/lobby.jpg",
+      alt: "Hospital lobby with seating, reception desk and a retail shelf",
+      caption: "Lobby and reception",
+      size: "wide",
+    },
     gallery: [
-      { alt: "Lobby", caption: "Reception & lobby", size: "wide" },
-      { alt: "Treatment area", caption: "Treatment ward", size: "square" },
-      { alt: "Construction", caption: "Framing complete", size: "tall" },
-      { alt: "Exam room", caption: "Exam room", size: "square" },
+      {
+        src: "/projects/veterinary-hospital-replacements/IMG_2216.jpg",
+        alt: "Treatment area with equipment and a glass-fronted passage",
+        caption: "Treatment area",
+        size: "wide",
+      },
+      {
+        src: "/projects/veterinary-hospital-replacements/IMG_2244.jpg",
+        alt: "Exam room with built-in desk, bench seating and exam table",
+        caption: "Exam room",
+        size: "square",
+      },
+      {
+        src: "/projects/veterinary-hospital-replacements/IMG_2231.jpg",
+        alt: "Surgery suite with surgical lights and monitoring equipment",
+        caption: "Surgery suite",
+        size: "square",
+      },
+      {
+        src: "/projects/veterinary-hospital-replacements/IMG_2230.jpg",
+        alt: "Laboratory with cabinetry, analyzers and a workstation",
+        caption: "Laboratory",
+        size: "square",
+      },
+      {
+        src: "/projects/veterinary-hospital-replacements/IMG_2239.jpg",
+        alt: "Bathing area with tiled wet wall and a lift table",
+        caption: "Bathing and treatment",
+        size: "square",
+      },
+      {
+        src: "/projects/veterinary-hospital-replacements/IMG_2243.jpg",
+        alt: "Private office with built-in desk and storage",
+        caption: "Doctor's office",
+        size: "square",
+      },
+      {
+        src: "/projects/veterinary-hospital-replacements/IMG_2227.jpg",
+        alt: "Treatment ward with kennel banks and a central island",
+        caption: "Treatment ward",
+        size: "wide",
+      },
     ],
   },
   {
@@ -305,7 +474,7 @@ export const projects: Project[] = [
     blurb:
       "Three-week open-air pop-ups introducing the QC20, with modular displays built to ship overseas.",
     overview:
-      "I coordinated three-week-running pop-up shops in England and Australia for the introduction of the QC20 noise-cancelling in-ear headphones. Displays were designed and fabricated to be modular and meet international shipping specifications, then installed in public spaces as open-air listening stations where consumers could try multiple products in the Bose line-up. I worked closely with the Bose retail and marketing team on graphics, messaging and the overall customer-felt experience.",
+      "I coordinated three-week-running pop-up shops in England and Australia for the introduction of the QC20 noise-cancelling in-ear headphones. Displays were designed and fabricated to be modular and meet international shipping specifications, then installed in public spaces as open-air listening stations where consumers could try multiple products in the Bose line-up. I worked closely with the Bose retail and marketing team on graphics, messaging and the overall customer-felt experience. The kiosk system was pitched as tool-free to assemble, reconfigurable into X, T, V and linear layouts to suit each venue.",
     role: "Project coordinator & designer",
     scope: ["Pop-up retail", "Fabrication", "International logistics", "Open-air displays"],
     stats: [
@@ -329,13 +498,88 @@ export const projects: Project[] = [
         body: "Graphics, messaging and layout designed as one customer journey with Bose's retail and marketing teams.",
       },
     ],
-    cover: { alt: "Bose QC20 pop-up display", caption: "Open-air listening stations", size: "wide" },
+    cover: {
+      src: "/projects/bose-qc20-pop-ups/cover.jpg",
+      alt: "Bose pop-up kiosk beneath a latticed station roof in England",
+      caption: "Bose pop-up, England",
+      size: "wide",
+      focus: "50% 82%",
+    },
     gallery: [
-      { alt: "Pop-up overview", caption: "Pop-up overview", size: "wide" },
-      { alt: "Modular display", caption: "Modular display", size: "square" },
-      { alt: "Listening station", caption: "Listening station", size: "square" },
-      { alt: "Shipping and install", caption: "Fabrication and install", size: "wide" },
+      {
+        src: "/projects/bose-qc20-pop-ups/DSC_2627.jpg",
+        alt: "Bose kiosk with an illuminated sign on a rail station concourse",
+        caption: "England: rail concourse pop-up",
+        size: "wide",
+      },
+      {
+        src: "/projects/bose-qc20-pop-ups/DSC_2663.jpg",
+        alt: "Shoppers trying Bose headphones at a display",
+        caption: "Trying the headphones",
+        size: "square",
+      },
+      {
+        src: "/projects/bose-qc20-pop-ups/Bose_Australia_img-35.jpg",
+        alt: "Bose staff demonstrating headphones to a customer in Australia",
+        caption: "Australia: demo",
+        size: "square",
+      },
+      {
+        src: "/projects/bose-qc20-pop-ups/DSC_2814.jpg",
+        alt: "Brand ambassador explaining headphones at a product display",
+        caption: "Product display",
+        size: "square",
+      },
+      {
+        src: "/projects/bose-qc20-pop-ups/Bose_Australia_img-28.jpg",
+        alt: "Customers listening at a Bose \"Try them here\" kiosk in an Australian plaza",
+        caption: "Australia: listening station",
+        size: "square",
+      },
+      {
+        src: "/projects/bose-qc20-pop-ups/DSC_2613.jpg",
+        alt: "Overhead view of the Bose pop-up on a station concourse",
+        caption: "England: overhead view",
+        size: "square",
+      },
+      {
+        src: "/projects/bose-qc20-pop-ups/Bose_Australia_img-32.jpg",
+        alt: "Overhead view of Bose kiosks in a shopping plaza",
+        caption: "Australia: plaza overview",
+        size: "wide",
+      },
     ],
+    documents: [
+      {
+        src: "/projects/bose-qc20-pop-ups/deck-4.jpg",
+        alt: "Pitch deck slide showing a modular kiosk that assembles without tools",
+        caption: "Modular, tool-free kiosk",
+        fit: "contain",
+        orientation: "landscape",
+      },
+      {
+        src: "/projects/bose-qc20-pop-ups/deck-6.jpg",
+        alt: "Pitch deck slide with X-shape activation layout renderings",
+        caption: "X-shape layout",
+        fit: "contain",
+        orientation: "landscape",
+      },
+      {
+        src: "/projects/bose-qc20-pop-ups/deck-10.jpg",
+        alt: "Pitch deck slide with satellite listening station and mobile sound shower concepts",
+        caption: "Satellite listening station",
+        fit: "contain",
+        orientation: "landscape",
+      },
+      {
+        src: "/projects/bose-qc20-pop-ups/deck-12.jpg",
+        alt: "Pitch deck slide with the activation timeline across regions",
+        caption: "Activation timeline",
+        fit: "contain",
+        orientation: "landscape",
+      },
+    ],
+    documentsTitle: "From the pitch deck",
   },
   {
     slug: "bose-sound-shack-us-open-of-surf",
@@ -370,34 +614,52 @@ export const projects: Project[] = [
       },
     ],
     cover: {
-      src: "/projects/bose-sound-shack-us-open-of-surf/01-sound-shack-team.jpg",
-      alt: "Brand ambassadors at the Bose Sound Shack, a thatched beach hut at the US Open of Surf",
-      caption: "The Bose Sound Shack, US Open of Surf",
+      src: "/projects/bose-sound-shack-us-open-of-surf/cover.jpg",
+      alt: "Crowds at the Bose Sound Shack, a thatched beach hut at the US Open of Surf",
+      caption: "The Bose Sound Shack",
       size: "wide",
     },
     gallery: [
       {
-        src: "/projects/bose-sound-shack-us-open-of-surf/02-skateboard-displays.jpg",
-        alt: "Headphones mounted on custom painted skateboard-deck displays",
-        caption: "Skateboard-deck headphone displays",
+        src: "/projects/bose-sound-shack-us-open-of-surf/training-3.jpg",
+        alt: "Aerial view of the Bose Sound Shack among festival tents and crowds on the beach",
+        caption: "The Sound Shack in the festival village",
         size: "wide",
       },
       {
-        src: "/projects/bose-sound-shack-us-open-of-surf/03-listening.jpg",
+        src: "/projects/bose-sound-shack-us-open-of-surf/training-29.jpg",
+        alt: "Headphones on custom painted skateboard-deck displays",
+        caption: "Skateboard-deck displays",
+        size: "square",
+      },
+      {
+        src: "/projects/bose-sound-shack-us-open-of-surf/training-68.jpg",
+        alt: "Front of the Sound Shack with a queue of festival-goers",
+        caption: "Front entrance",
+        size: "square",
+      },
+      {
+        src: "/projects/bose-sound-shack-us-open-of-surf/listening.jpg",
         alt: "Guests trying Bose headphones at the Sound Shack",
         caption: "Guests trying the product",
         size: "square",
       },
       {
-        src: "/projects/bose-sound-shack-us-open-of-surf/04-product-demo.jpg",
+        src: "/projects/bose-sound-shack-us-open-of-surf/demo.jpg",
         alt: "Bose team member demonstrating headphones to a guest",
         caption: "Product demos",
         size: "square",
       },
       {
-        src: "/projects/bose-sound-shack-us-open-of-surf/05-us-open-of-surf.jpg",
-        alt: "Aerial view of the US Open of Surf festival village on the beach",
-        caption: "The US Open of Surf festival village",
+        src: "/projects/bose-sound-shack-us-open-of-surf/training-15.jpg",
+        alt: "Brand ambassadors behind the Sound Shack counter",
+        caption: "The team",
+        size: "square",
+      },
+      {
+        src: "/projects/bose-sound-shack-us-open-of-surf/training-72.jpg",
+        alt: "Side view of the Sound Shack with palms, surfboards and a queue",
+        caption: "Sound Shack side view",
         size: "wide",
       },
     ],
